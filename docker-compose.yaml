@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: express-api-starter
+    ports: 
+      - "8080:80"
+    depends_on:
+      - "db"
+    networks:
+      - express-api-mongo
+  db:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017-27019:27017-27019"
+    volumes:
+      - database:/data/db
+    networks:
+      - express-api-mongo
+
+volumes:
+  database:
+    name: mongodb_storage
+networks:
+  express-api-mongo:
+    name: express-api-mongo
