@@ -4,7 +4,6 @@ const helmet = require('helmet');
 const cors = require('cors');
 require('dotenv').config();
 
-require('./db/mongoose');
 const AccessLogs = require('./models/accesslogs');
 
 const middlewares = require('./middlewares');
